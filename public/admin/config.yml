@@ -89,13 +89,12 @@ collections:
 
   - name: "posts"
     label: "Posts"
-    folder: "artikel/"
-    extension: "md"
-    format: "frontmatter"
+    folder: "artikel"
     create: true
     slug: "{{slug}}"
     identifier_field: slug
     summary: "{{title}}"
+    sortable_fields: ["date"]
     fields:
       - label: "Slug"
         name: "slug"
