@@ -89,9 +89,9 @@ collections:
 
   - name: "posts"
     label: "Posts"
-    folder: "content/posts/"
+    folder: "artikel/"
     extension: "mdx"
-    format: "frontmatter"
+    format: "gray-matter"
     create: true
     slug: "{{slug}}"
     identifier_field: slug
