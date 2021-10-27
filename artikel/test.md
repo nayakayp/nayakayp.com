@@ -6,10 +6,4 @@ author: nayakayp
 tags:
   - web-development
 ---
-Nayaka Yoga Pradipta Ingin bicara nih!
-
-Apapun bentuknya, pasti mantap lah ya
-
-1. Nayaka
-2. Yoga
-3. Pradipta
+N
