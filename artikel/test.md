@@ -8,8 +8,6 @@ tags:
 ---
 Nayaka Yoga Pradipta Ingin bicara nih!
 
-![](/images/nayaka-photo.png)
-
 Apapun bentuknya, pasti mantap lah ya
 
 1. Nayaka
