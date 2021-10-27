@@ -5,7 +5,7 @@ import { getAllArtikelIds, getArtikelData } from "../../lib/artikel";
 
 export async function getStaticProps({ params }) {
   const artikelData = await getArtikelData(params.id);
-  // console.log(artikelData);
+
   return {
     props: {
       artikelData,
@@ -22,7 +22,6 @@ export async function getStaticPaths() {
 }
 
 export default function Artikel({ artikelData }) {
-  console.log(artikelData);
   return (
     <Layout>
       <Head>

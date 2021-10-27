@@ -1,3 +1,25 @@
+.desktopSize {
+  width: 108rem;
+  margin: 0 auto;
+}
+
+.tabletSize {
+  width: 72rem;
+  margin: 0 auto;
+}
+
+.mobileSize {
+  width: 48rem;
+  margin: 0 auto;
+}
+
+.sectionDivider {
+  width: 17rem;
+  height: 0.5rem;
+  background: var(--primary-color);
+  margin-bottom: 4rem;
+}
+
 .heading2Xl {
   font-size: 2.5rem;
   line-height: 1.2;
