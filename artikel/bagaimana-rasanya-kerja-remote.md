@@ -1,9 +1,10 @@
 ---
 slug: bagaimana-rasanya-kerja-remote
 title: Bagaimana Rasanya Kerja Remote
-date: 2021-11-03
+date: "2021-11-03"
 author: nayakayp
 ---
+
 ## Keuntungan
 
 1. Waktu yang sangat fleksibel
