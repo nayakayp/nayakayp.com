@@ -55,6 +55,9 @@ export default function ComponentForm() {
           font-weight: 400;
         }
         @media screen and (max-width: 414px) {
+          .root {
+            width: 100%;
+          }
           .submit-wrapper {
             flex-direction: column;
           }
