@@ -27,6 +27,11 @@ export default function Artikel({ allArtikelData }) {
         h1 {
           margin-bottom: 3rem;
         }
+        @media screen and (max-width: 414px) {
+          .root {
+            padding: 6rem 2rem;
+          }
+        }
       `}</style>
       <section className={`root ${utilStyles.desktopSize}`}>
         <div className="header">
