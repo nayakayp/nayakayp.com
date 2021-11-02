@@ -110,20 +110,20 @@ export default function ComponentForm() {
         </div>
       </form>
       <Script>{`
-      // document.querySelector("form").addEventListener("submit", handleSubmit);
+      document.querySelector("form").addEventListener("submit", handleSubmit);
         
-      // function handleSubmit(e) {
-      //     e.preventDefault()
-      //     let myForm = document.querySelector('#contactForm');
-      //     let formData = new FormData(myForm)
-      //     console.log(formData);
-      //     fetch('/', {
-      //       method: 'POST',
-      //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //       body: new URLSearchParams(formData).toString()
-      //     }).then(() => console.log('Form successfully submitted')).catch((error) =>
-      //       alert(error))
-      //   }
+      function handleSubmit(e) {
+          e.preventDefault()
+          let myForm = document.querySelector('#contactForm');
+          let formData = new FormData(myForm)
+          console.log(formData);
+          fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          }).then(() => console.log('Form successfully submitted')).catch((error) =>
+            alert(error))
+        }
 
       `}</Script>
     </div>
