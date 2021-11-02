@@ -1,7 +1,16 @@
 import Button from "./component-button";
 import Script from "next/script";
+import * as gtag from "../../lib/gtag";
 
 export default function ComponentForm() {
+  const submitForm = () => {
+    gtag.event({
+      action: "submit_form",
+      category: "lead",
+      label: "Form submitted",
+      value: "success",
+    });
+  };
   return (
     <div className="root">
       <style jsx>{`
@@ -70,7 +79,13 @@ export default function ComponentForm() {
           }
         }
       `}</style>
-      <form id="contactForm" method="POST" data-netlify="true" name="contact">
+      <form
+        id="contactForm"
+        method="POST"
+        data-netlify="true"
+        name="contact"
+        onSubmit={submitForm}
+      >
         <input type="hidden" name="form-name" value="contact" />
         <div className="input-wrapper">
           <label htmlFor="nama">Nama</label>
