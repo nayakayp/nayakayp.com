@@ -21,6 +21,11 @@ export default function Button({
             border: ${border ? `1px solid ${textColor}` : "none"};
             cursor: pointer;
           }
+          @media screen and (max-width: 414px) {
+            button {
+              width: 100%;
+            }
+          }
         `}
       </style>
       <button type={submit ? "submit" : "button"}>{children}</button>

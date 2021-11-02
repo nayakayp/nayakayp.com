@@ -23,16 +23,16 @@ export default function Home({ allArtikelData }) {
     <Layout home>
       <style jsx>{`
         .hero {
-          background: var(--primary-color);
+          background: var(--secondary-color);
           background-image: url("/images/hero-background.png");
           background-repeat: no-repeat;
           background-position: right bottom;
-          color: var(--secondary-text-color);
+          color: var(--primary-text-color);
           padding: 6rem 0 5rem 0;
         }
 
         h1 {
-          color: var(--secondary-text-color);
+          color: var(--primary-text-color);
         }
 
         .hero-wrapper {
@@ -74,8 +74,31 @@ export default function Home({ allArtikelData }) {
         }
 
         .icon {
-          content: url("/images/icons/check-square-fill.svg");
+          content: url("/images/icons/check-square-fill-primary.svg");
           padding: 0.5rem 1.7rem 0 0;
+        }
+
+        @media screen and (max-width: 414px) {
+          .hero-wrapper {
+            flex-direction: column-reverse;
+          }
+          .hero-desc {
+            width: 100%;
+          }
+          .hero-button {
+            flex-direction: column;
+          }
+          .hero-button a {
+            margin-bottom: 1rem;
+          }
+          .hero-illustration {
+            margin-bottom: 2rem;
+            width: 50%;
+            z-index: 1;
+          }
+          .hero h1 {
+            text-align: center;
+          }
         }
 
         section.service {
@@ -96,6 +119,19 @@ export default function Home({ allArtikelData }) {
           display: flex;
           justify-content: space-between;
           margin-top: 4rem;
+        }
+
+        @media screen and (max-width: 414px) {
+          .card-wrapper {
+            flex-direction: column;
+            align-items: center;
+          }
+          .service h2 {
+            width: 22rem;
+          }
+          .card-wrapper Card {
+            margin-bottom: 1rem;
+          }
         }
 
         .web-project {
@@ -173,6 +209,16 @@ export default function Home({ allArtikelData }) {
           background: var(--primary-color);
         }
 
+        @media screen and (max-width: 414px) {
+          .web-project {
+            flex-direction: column;
+            padding: 0 2rem;
+          }
+          .showcase {
+            width: 100%;
+          }
+        }
+
         .form-wrapper {
           padding: 6rem 0;
           display: flex;
@@ -190,12 +236,24 @@ export default function Home({ allArtikelData }) {
           margin-bottom: 4rem;
         }
 
+        @media screen and (max-width: 414px) {
+          .form-wrapper {
+            padding: 6rem 2rem;
+          }
+        }
+
         .artikel-home {
           padding: 6rem 0 6rem;
         }
 
         .artikel-home ul {
           margin-bottom: 5rem;
+        }
+
+        @media screen and (max-width: 414px) {
+          .artikel-home {
+            padding: 0 2rem;
+          }
         }
       `}</style>
       <Head>
@@ -215,7 +273,10 @@ export default function Home({ allArtikelData }) {
               tempat yang tepat.
             </p>
             <p className="hero-benefit">
-              <strong> Karena dengan saya, Anda akan mendapatkan:</strong>
+              <strong>
+                {" "}
+                Karena bekerja dengan saya, Anda akan mendapatkan:
+              </strong>
             </p>
             <ul>
               <div className="hero-list">
@@ -253,8 +314,8 @@ export default function Home({ allArtikelData }) {
               <Link href="/#hire">
                 <a>
                   <Button
-                    textColor="var(--primary-color)"
-                    bgColor="var(--secondary-color)"
+                    textColor="var(--secondary-color)"
+                    bgColor="var(--primary-color)"
                   >
                     Hire Me
                   </Button>
@@ -264,8 +325,8 @@ export default function Home({ allArtikelData }) {
               <Link href="/#work">
                 <a>
                   <Button
-                    bgColor="var(--primary-color)"
-                    textColor="var(--secondary-color)"
+                    bgColor="var(--secondary-color)"
+                    textColor="var(--primary-color)"
                     border={true}
                   >
                     My Work
@@ -276,14 +337,16 @@ export default function Home({ allArtikelData }) {
               <div className={"horizontal-div"}></div>
             </div>
           </div>
-          <Image
-            priority
-            src="/images/nayaka-photo.png"
-            className={utilStyles.borderCircle}
-            height={371}
-            width={371}
-            alt="Nayaka Yoga Pradipta"
-          />
+          <div className="hero-illustration">
+            <Image
+              priority
+              src="/images/nayaka-photo.png"
+              className={utilStyles.borderCircle}
+              height={371}
+              width={371}
+              alt="Nayaka Yoga Pradipta"
+            />
+          </div>
         </div>
       </section>
 
