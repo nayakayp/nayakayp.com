@@ -54,6 +54,17 @@ export default function ComponentForm() {
           padding-left: 4rem;
           font-weight: 400;
         }
+        @media screen and (max-width: 414px) {
+          .submit-wrapper {
+            flex-direction: column;
+          }
+          p {
+            margin-top: 2rem;
+            text-align: center;
+            padding-left: 0;
+            font-size: 1.4rem;
+          }
+        }
       `}</style>
       <form action="/" method="POST">
         <div className="input-wrapper">

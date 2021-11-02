@@ -72,3 +72,11 @@
 .lightText {
   color: #666;
 }
+
+@media screen and (max-width: 414px) {
+  .desktopSize {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}

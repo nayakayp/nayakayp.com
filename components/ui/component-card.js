@@ -7,7 +7,7 @@ export default function ComponentCard({ children, imgHead, title }) {
         .root {
           background: var(--light-background);
           padding: 3rem 2rem 4rem 2rem;
-          max-width: 34rem;
+          width: 34rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -30,6 +30,15 @@ export default function ComponentCard({ children, imgHead, title }) {
         p {
           font-weight: 400;
           text-align: center;
+        }
+        @media screen and (max-width: 414px) {
+          .root {
+            width: 90%;
+            margin: 0 2rem;
+          }
+          .root {
+            margin-bottom: 2rem;
+          }
         }
       `}</style>
       <div className="image-wrapper">

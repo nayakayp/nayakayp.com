@@ -62,6 +62,46 @@ export default function Layout({ children, home }) {
         main {
           min-height: 60vh;
         }
+        .hamburger {
+          display: none;
+        }
+        @media screen and (max-width: 414px) {
+          nav {
+            position: fixed;
+          }
+          nav ul {
+            display: none;
+          }
+          nav ul.active {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            min-height: 100vh;
+            width: 100%;
+            background: var(--light-background);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          nav li {
+            margin-bottom: 1rem;
+            margin-left: 0;
+          }
+          .hamburger {
+            display: initial;
+            cursor: pointer;
+            z-index: 1000;
+          }
+          .hamburger .line {
+            height: 0.5rem;
+            width: 3rem;
+            background: var(--primary-color);
+            margin-bottom: 0.5rem;
+          }
+        }
       `}</style>
 
       <Head>
@@ -85,6 +125,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+
       <header>
         <nav className={utilStyles.desktopSize}>
           <Link href="/">
@@ -92,6 +133,16 @@ export default function Layout({ children, home }) {
               <img src="/images/nayaka-logo.png" alt="Logo Nayaka" />
             </a>
           </Link>
+          <div
+            className="hamburger"
+            onClick={() =>
+              document.querySelector("ul").classList.toggle("active")
+            }
+          >
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
+          </div>
           <ul>
             <li>
               <Link href="/profil">

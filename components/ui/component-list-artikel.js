@@ -38,6 +38,18 @@ export default function ComponentArtikel({ id, date, title, excerpt }) {
         a:hover {
           color: var(--accent-color);
         }
+        @media screen and (max-width: 414px) {
+          a {
+            line-height: 100%;
+            font-size: 2rem;
+          }
+          .excerpt {
+            font-size: 1.4rem;
+          }
+          .artikel-image {
+            width: 30rem;
+          }
+        }
       `}</style>
       <div className="list-wrapper">
         <div className="artikel-info">
