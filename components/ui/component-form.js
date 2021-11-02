@@ -1,4 +1,5 @@
 import Button from "./component-button";
+import Script from "next/script";
 
 export default function ComponentForm() {
   return (
@@ -69,7 +70,7 @@ export default function ComponentForm() {
           }
         }
       `}</style>
-      <form action="/" method="POST">
+      <form id="contactForm" method="POST" data-netlify="true" name="contact">
         <div className="input-wrapper">
           <label htmlFor="nama">Nama</label>
           <input type="text" name="nama" id="nama" required />
@@ -108,6 +109,23 @@ export default function ComponentForm() {
           </p>
         </div>
       </form>
+      <Script>{`
+      document.querySelector("form").addEventListener("submit", handleSubmit);
+        
+      function handleSubmit(e) {
+          e.preventDefault()
+          let myForm = document.querySelector('#contactForm');
+          let formData = new FormData(myForm)
+          console.log(formData);
+          fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          }).then(() => console.log('Form successfully submitted')).catch((error) =>
+            alert(error))
+        }
+
+      `}</Script>
     </div>
   );
 }
