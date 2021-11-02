@@ -71,6 +71,7 @@ export default function ComponentForm() {
         }
       `}</style>
       <form id="contactForm" method="POST" data-netlify="true" name="contact">
+        <input type="hidden" name="form-name" value="contact" />
         <div className="input-wrapper">
           <label htmlFor="nama">Nama</label>
           <input type="text" name="nama" id="nama" required />
@@ -110,20 +111,20 @@ export default function ComponentForm() {
         </div>
       </form>
       <Script>{`
-      // document.querySelector("form").addEventListener("submit", handleSubmit);
+      document.querySelector("form").addEventListener("submit", handleSubmit);
         
-      // function handleSubmit(e) {
-      //     e.preventDefault()
-      //     let myForm = document.querySelector('#contactForm');
-      //     let formData = new FormData(myForm)
-      //     console.log(formData);
-      //     fetch('/', {
-      //       method: 'POST',
-      //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      //       body: new URLSearchParams(formData).toString()
-      //     }).then(() => console.log('Form successfully submitted')).catch((error) =>
-      //       alert(error))
-      //   }
+      function handleSubmit(e) {
+          e.preventDefault()
+          let myForm = document.querySelector('#contactForm');
+          let formData = new FormData(myForm)
+          console.log(formData);
+          fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          }).then((resp) => console.log('Form successfully submitted',resp)).catch((error) =>
+            alert(error))
+        }
 
       `}</Script>
     </div>
