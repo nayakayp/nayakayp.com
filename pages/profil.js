@@ -25,6 +25,12 @@ export default function Profil() {
         p {
           margin-bottom: 2rem;
         }
+        @media screen and (max-width: 414px) {
+          .root {
+            padding: 6rem 2rem;
+            width: 100%;
+          }
+        }
       `}</style>
       <section className={`root ${utilStyles.desktopSize}`}>
         <div className="header">

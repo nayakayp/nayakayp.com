@@ -41,6 +41,16 @@ export default function Artikel({ artikelData }) {
           margin: 1rem 0 4rem 0;
           font-size: 1.6rem;
         }
+        @media screen and (max-width: 414px) {
+          .content {
+            width: 100%;
+            padding: 6rem 2rem;
+          }
+          h3 {
+            font-size: 3rem;
+            line-height: 3rem;
+          }
+        }
       `}</style>
       <Head>
         <title>{artikelData.title}</title>
