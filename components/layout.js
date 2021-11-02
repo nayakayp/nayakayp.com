@@ -2,6 +2,7 @@ import Head from "next/head";
 import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import Button from "./ui/component-button";
+import Alert from "./ui/component-message-alert";
 
 export const siteTitle = "Nayaka Yoga Pradipta";
 
@@ -130,7 +131,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-
+      <Alert />
       <header>
         <nav className={utilStyles.desktopSize}>
           <Link href="/">

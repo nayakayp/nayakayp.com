@@ -111,20 +111,32 @@ export default function ComponentForm() {
         </div>
       </form>
       <Script>{`
-      document.querySelector("form").addEventListener("submit", handleSubmit);
-        
+      const contactForm= document.querySelector("form")
+      const alertMessage=document.querySelector(".alert");
+      
+      contactForm.addEventListener("submit", handleSubmit)
+
       function handleSubmit(e) {
-          e.preventDefault()
-          let myForm = document.querySelector('#contactForm');
-          let formData = new FormData(myForm)
-          console.log(formData);
-          fetch('/', {
-            method: 'POST',
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-          }).then((resp) => console.log('Form successfully submitted',resp)).catch((error) =>
-            alert(error))
-        }
+        e.preventDefault();
+        let myForm = document.querySelector("#contactForm");
+        let formData = new FormData(myForm);
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then((resp) => {
+            alertMessage.classList.add("active", "success");
+            alertMessage.children[0].textContent = "Pesan Sudah Terkirim";
+            contactForm.reset();
+          })
+          .catch((error) => {
+            alertMessage.classList.add("active", "error");
+            alertMessage.children[0].textContent =
+              "Gagal mengirim! silahkan refresh dan coba lagi";
+            contactForm.reset();
+          });
+      }
 
       `}</Script>
     </div>
