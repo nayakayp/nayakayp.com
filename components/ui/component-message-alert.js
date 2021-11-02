@@ -9,12 +9,12 @@ export default function ComponentMessageAlert() {
           margin: 0 auto;
           background: var(--accent-color);
           position: fixed;
-          top: 0;
+          top: 7vh;
           transition: 0.5s;
           left: 50%;
           transform: translateX(-50%);
           border-radius: 0.5rem;
-          z-index: 10000;
+          z-index: 99;
         }
         .root.active.success {
           background: var(--accent-color);
@@ -24,7 +24,7 @@ export default function ComponentMessageAlert() {
         }
         .root.active {
           transition: 0.5s;
-          top: 5vh;
+          top: 10vh;
           opacity: 1;
         }
         p {
