@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../../components/layout";
 import Date from "../../components/date";
+import CTA from "../../components/ui/component-cta-artikel";
 import utilStyles from "../../styles/utils.module.css";
 import { getAllArtikelIds, getArtikelData } from "../../lib/artikel";
 
@@ -26,6 +27,8 @@ export default function Artikel({ artikelData }) {
   return (
     <Layout>
       <style jsx>{`
+        .root {
+        }
         h3 {
           font-size: 3.6rem;
           font-weight: 600;
@@ -49,6 +52,7 @@ export default function Artikel({ artikelData }) {
         </p>
         <div dangerouslySetInnerHTML={{ __html: artikelData.contentHtml }} />
       </article>
+      <CTA />
     </Layout>
   );
 }
