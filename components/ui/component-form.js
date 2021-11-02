@@ -120,6 +120,8 @@ export default function ComponentForm() {
         e.preventDefault();
         let myForm = document.querySelector("#contactForm");
         let formData = new FormData(myForm);
+        alertMessage.classList.add("active", "success");
+        alertMessage.children[0].textContent = "Pesan Sudah Terkirim";
         fetch("/", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },

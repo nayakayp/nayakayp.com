@@ -27,6 +27,7 @@ export default function Layout({ children, home }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          z-index: 100;
         }
         nav ul {
           display: flex;

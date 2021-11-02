@@ -8,6 +8,7 @@ import Button from "../components/ui/component-button";
 import Card from "../components/ui/component-card";
 import Form from "../components/ui/component-form";
 import ListArtikel from "../components/ui/component-list-artikel";
+import Script from "next/script";
 
 export async function getStaticProps() {
   const allArtikelData = getSortedArtikelData();
@@ -157,12 +158,17 @@ export default function Home({ allArtikelData }) {
         }
 
         .showcase {
+          display: none;
           position: relative;
           background: var(--light-background);
           width: 500px;
           height: 470px;
           border-radius: 0.5rem;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .showcase.active {
+          display: initial;
         }
 
         .web-showcase {
@@ -198,6 +204,7 @@ export default function Home({ allArtikelData }) {
         }
 
         .bullet {
+          cursor: pointer;
           height: 1rem;
           width: 1rem;
           background: var(--primary-color-blur);
@@ -213,6 +220,12 @@ export default function Home({ allArtikelData }) {
           .web-project {
             flex-direction: column;
             padding: 0 2rem;
+          }
+          .web-project h3 {
+            font-size: 1.8rem;
+          }
+          .web-project p {
+            font-size: 1.6rem;
           }
           .showcase {
             width: 100%;
@@ -377,37 +390,41 @@ export default function Home({ allArtikelData }) {
           <h2>Beberapa Pekerjaan Sukses</h2>
           <div className={utilStyles.sectionDivider}></div>
           <ul>
-            <li className="active" data-web="idio">
-              <h3>Idio</h3>
+            <li className="portfolio active" data-web="idio">
+              <h3>IDIO</h3>
               <p>Platform untuk Podcaster Indonesia</p>
             </li>
-            <li data-web="menjadiperwira">
+            <li className="portfolio" data-web="menjadiperwira">
               <h3>MENJADIPERWIRA</h3>
               <p>Event web profile</p>
             </li>
-            <li data-web="straightaway">
+            <li className="portfolio" data-web="straightaway">
               <h3>STRAIGHTAWAY</h3>
               <p>Small Business Company Profile</p>
             </li>
-            <li data-web="tirtoproyektor">
+            <li className="portfolio" data-web="tirtoproyektor">
               <h3>TIRTOPROYEKTOR</h3>
               <p>Rental Proyektor & Ecommerce</p>
             </li>
-            <li data-web="bumigriyamadani">
+            <li className="portfolio" data-web="bumigriyamadani">
               <h3>BUMIGRIYAMADANI</h3>
               <p>Property Listing</p>
             </li>
           </ul>
         </div>
         <div className="web-showcase">
-          <div className="showcase">
+          <div className="showcase active">
             <Image
               src="/images/idio.png"
               layout="fill"
               objectFit="contain"
               placeholder="empty"
             ></Image>
-            <a href="#" target="_blank" className="outbound-link">
+            <a
+              href="https://idio.app"
+              target="_blank"
+              className="outbound-link"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="ionicon"
@@ -424,6 +441,123 @@ export default function Home({ allArtikelData }) {
               </svg>
             </a>
           </div>
+
+          <div className="showcase">
+            <Image
+              src="/images/menjadiperwira.png"
+              layout="fill"
+              objectFit="contain"
+              placeholder="empty"
+            ></Image>
+            <a
+              href="https://menjadiperwira.com"
+              target="_blank"
+              className="outbound-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ionicon"
+                viewBox="0 0 512 512"
+              >
+                <title>Arrow Redo</title>
+                <path
+                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinejoin="round"
+                  strokeWidth="32"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div className="showcase">
+            <Image
+              src="/images/straightaway.png"
+              layout="fill"
+              objectFit="contain"
+              placeholder="empty"
+            ></Image>
+            <a
+              href="https://straightaway.id"
+              target="_blank"
+              className="outbound-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ionicon"
+                viewBox="0 0 512 512"
+              >
+                <title>Arrow Redo</title>
+                <path
+                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinejoin="round"
+                  strokeWidth="32"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div className="showcase">
+            <Image
+              src="/images/tirtoproyektor.png"
+              layout="fill"
+              objectFit="contain"
+              placeholder="empty"
+            ></Image>
+            <a
+              href="https://tirtoproyektor.com"
+              target="_blank"
+              className="outbound-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ionicon"
+                viewBox="0 0 512 512"
+              >
+                <title>Arrow Redo</title>
+                <path
+                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinejoin="round"
+                  strokeWidth="32"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div className="showcase">
+            <Image
+              src="/images/bumigriyamadani.png"
+              layout="fill"
+              objectFit="contain"
+              placeholder="empty"
+            ></Image>
+            <a
+              href="https://bumigriyamadani.com"
+              target="_blank"
+              className="outbound-link"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="ionicon"
+                viewBox="0 0 512 512"
+              >
+                <title>Arrow Redo</title>
+                <path
+                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinejoin="round"
+                  strokeWidth="32"
+                />
+              </svg>
+            </a>
+          </div>
+
           <ul>
             <div className="bullet active"></div>
             <div className="bullet"></div>
@@ -472,6 +606,39 @@ export default function Home({ allArtikelData }) {
           </a>
         </Link>
       </section>
+      <Script>
+        {`
+          const websitePortfolio=document.querySelectorAll('.portfolio');
+          const showCase=document.querySelectorAll('.showcase');
+          const bullets=document.querySelectorAll('.bullet');
+
+          websitePortfolio.forEach((website,index)=>{
+            website.addEventListener('click',()=>{
+              selectHighlight(index);
+            })
+          })
+
+          bullets.forEach((bullet,index)=>{
+            bullet.addEventListener('click',()=>{
+              selectHighlight(index);
+            })
+          })
+
+          function selectHighlight(i){
+            websitePortfolio.forEach((website,index)=>{
+              if(i===index){
+                website.classList.add('active');
+                showCase[index].classList.add('active');
+                bullets[index].classList.add('active');
+              }if(i!==index){
+                website.classList.remove('active');
+                showCase[index].classList.remove('active');
+                bullets[index].classList.remove('active');
+              }
+            })
+          }
+        `}
+      </Script>
     </Layout>
   );
 }
