@@ -121,7 +121,7 @@ export default function Layout({ children, home }) {
         />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Nayaka Yoga Pradipta adalah seorang freelance web developer"
         />
         <meta
           property="og:image"
