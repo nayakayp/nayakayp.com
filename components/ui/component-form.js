@@ -71,6 +71,7 @@ export default function ComponentForm() {
         }
       `}</style>
       <form id="contactForm" method="POST" data-netlify="true" name="contact">
+        <input type="hidden" name="form-name" value="contact" />
         <div className="input-wrapper">
           <label htmlFor="nama">Nama</label>
           <input type="text" name="nama" id="nama" required />
@@ -121,7 +122,7 @@ export default function ComponentForm() {
             method: 'POST',
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: new URLSearchParams(formData).toString()
-          }).then(() => console.log('Form successfully submitted')).catch((error) =>
+          }).then((resp) => console.log('Form successfully submitted',resp)).catch((error) =>
             alert(error))
         }
 
