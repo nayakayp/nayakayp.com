@@ -126,8 +126,8 @@ export default function ComponentForm() {
         </div>
       </form>
       <Script>{`
-      const contactForm= document.querySelector("form")
-      const alertMessage=document.querySelector(".alert");
+      contactForm= document.querySelector("form")
+      alertMessage=document.querySelector(".alert");
       
       contactForm.addEventListener("submit", handleSubmit)
 

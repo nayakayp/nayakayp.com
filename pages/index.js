@@ -9,6 +9,7 @@ import Card from "../components/ui/component-card";
 import Form from "../components/ui/component-form";
 import ListArtikel from "../components/ui/component-list-artikel";
 import Script from "next/script";
+import photoProfile from "../public/images/nayaka-photo.png";
 
 export async function getStaticProps() {
   const allArtikelData = getSortedArtikelData();
@@ -353,11 +354,12 @@ export default function Home({ allArtikelData }) {
           <div className="hero-illustration">
             <Image
               priority
-              src="/images/nayaka-photo.png"
+              src={photoProfile}
               className={utilStyles.borderCircle}
               height={371}
               width={371}
               alt="Nayaka Yoga Pradipta"
+              placeholder="blur"
             />
           </div>
         </div>
@@ -608,9 +610,9 @@ export default function Home({ allArtikelData }) {
       </section>
       <Script>
         {`
-          const websitePortfolio=document.querySelectorAll('.portfolio');
-          const showCase=document.querySelectorAll('.showcase');
-          const bullets=document.querySelectorAll('.bullet');
+          websitePortfolio=document.querySelectorAll('.portfolio');
+          showCase=document.querySelectorAll('.showcase');
+          bullets=document.querySelectorAll('.bullet');
 
           websitePortfolio.forEach((website,index)=>{
             website.addEventListener('click',()=>{
