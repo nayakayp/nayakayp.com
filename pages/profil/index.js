@@ -1,8 +1,9 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.css";
+import { Layout } from "../../components";
+import { siteTitle } from "../../components/Layout/Layout";
+import utilStyles from "../../styles/utils.module.css";
 
-export default function Profil() {
+const profil = () => {
   return (
     <Layout>
       <Head>
@@ -117,4 +118,6 @@ export default function Profil() {
       </section>
     </Layout>
   );
-}
+};
+
+export default profil;

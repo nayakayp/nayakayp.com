@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Layout, { siteTitle } from "../components/layout";
+
+import { Button, Card, Layout, Form, ArticleList } from "../components";
+import { siteTitle } from "../components/Layout/Layout";
+
 import { getSortedArtikelData } from "../lib/artikel";
 import utilStyles from "../styles/utils.module.css";
-import Button from "../components/ui/component-button";
-import Card from "../components/ui/component-card";
-import Form from "../components/ui/component-form";
-import ListArtikel from "../components/ui/component-list-artikel";
 import Script from "next/script";
 import photoProfile from "../public/images/nayaka-photo.png";
 
@@ -22,7 +21,7 @@ export async function getStaticProps() {
 
 export default function Home({ allArtikelData }) {
   return (
-    <Layout home>
+    <Layout>
       <style jsx>{`
         .hero {
           background: var(--secondary-color);
@@ -586,7 +585,7 @@ export default function Home({ allArtikelData }) {
         <ul className={utilStyles.list}>
           {allArtikelData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <ListArtikel
+              <ArticleList
                 id={id}
                 date={date}
                 title={title}

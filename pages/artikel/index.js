@@ -1,6 +1,7 @@
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
-import Layout, { siteTitle } from "../../components/layout";
+import { Layout } from "../../components";
+import { siteTitle } from "../../components/Layout/Layout";
 import ListArtikel from "../../components/ui/component-list-artikel";
 import { getSortedArtikelData } from "../../lib/artikel";
 

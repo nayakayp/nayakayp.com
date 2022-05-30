@@ -1,12 +1,13 @@
 import Head from "next/head";
-import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
-import Button from "./ui/component-button";
-import Alert from "./ui/component-message-alert";
+
+import utilStyles from "../../styles/utils.module.css";
+
+import { Button } from "../../components";
 
 export const siteTitle = "Nayaka Yoga Pradipta";
 
-export default function Layout({ children, home }) {
+const Layout = ({ children, home }) => {
   return (
     <>
       <style jsx>{`
@@ -112,6 +113,7 @@ export default function Layout({ children, home }) {
       `}</style>
 
       <Head>
+        <title>{siteTitle}</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -132,7 +134,6 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Alert />
       <header>
         <nav className={utilStyles.desktopSize}>
           <Link href="/">
@@ -240,4 +241,6 @@ export default function Layout({ children, home }) {
       </footer>
     </>
   );
-}
+};
+
+export default Layout;

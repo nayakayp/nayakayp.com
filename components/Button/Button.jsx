@@ -1,10 +1,4 @@
-export default function Button({
-  children,
-  textColor,
-  bgColor,
-  border,
-  submit,
-}) {
+const Button = ({ children, textColor, bgColor, border, submit }) => {
   return (
     <>
       <style jsx>
@@ -31,4 +25,6 @@ export default function Button({
       <button type={submit ? "submit" : "button"}>{children}</button>
     </>
   );
-}
+};
+
+export default Button;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ComponentArtikel({ id, date, title, excerpt }) {
+const ArticleList = ({ id, date, title, excerpt }) => {
   return (
     <div className="root">
       <style jsx>{`
@@ -74,4 +74,6 @@ export default function ComponentArtikel({ id, date, title, excerpt }) {
       </div>
     </div>
   );
-}
+};
+
+export default ArticleList;
