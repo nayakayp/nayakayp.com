@@ -2,12 +2,11 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Button, Card, Layout, Form, ArticleList } from "../components";
+import { Button, Layout } from "../components";
 import { siteTitle } from "../components/Layout/Layout";
 
 import { getSortedArtikelData } from "../lib/artikel";
 import utilStyles from "../styles/utils.module.css";
-import Script from "next/script";
 import photoProfile from "../public/images/nayaka-photo.png";
 
 export async function getStaticProps() {
@@ -19,7 +18,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({ allArtikelData }) {
+const Home = () => {
   return (
     <Layout>
       <style jsx>{`
@@ -270,7 +269,7 @@ export default function Home({ allArtikelData }) {
         }
       `}</style>
       <Head>
-        <title>{siteTitle} - Freelance Web Developer</title>
+        <title>{siteTitle} - Web Developer</title>
       </Head>
 
       <section className={`hero `}>
@@ -363,283 +362,8 @@ export default function Home({ allArtikelData }) {
           </div>
         </div>
       </section>
-
-      <section className={`service ${utilStyles.desktopSize}`}>
-        <div className="service-head">
-          <div className={utilStyles.sectionDivider}></div>
-          <h2>Apa Yang Dapat Saya Bantu?</h2>
-        </div>
-        <div className="card-wrapper">
-          <Card imgHead="MERN-nayakayp" title="MERN Website Application">
-            Saya dapat membuat aplikasi berbasis web dari 0 sampai jadi dengan
-            menggunakan teknologi MERN (MongoDB - ExpressJS - ReactJS - NodeJS).
-          </Card>
-          <Card imgHead="wordpress-nayakayp" title="Wordpress Development">
-            Saya memiliki spesialisasi untuk men-design dan membuat theme
-            wordpress, optimisasi Wordpress, dan optimisasi SEO pada Wordpress.
-          </Card>
-          <Card imgHead="website-umkm-nayakayp" title="UKM/UMKM Website">
-            Jika Anda baru memulai bisnis dan ingin menawarkan produk atau jasa
-            secara digital untuk meningkatkan prospek, saya dapat membantu dalam
-            hal ini.
-          </Card>
-        </div>
-      </section>
-
-      <section id="work" className={`web-project ${utilStyles.desktopSize}`}>
-        <div className="web-list">
-          <h2>Beberapa Pekerjaan Sukses</h2>
-          <div className={utilStyles.sectionDivider}></div>
-          <ul>
-            <li className="portfolio active" data-web="idio">
-              <h3>IDIO</h3>
-              <p>Platform untuk Podcaster Indonesia</p>
-            </li>
-            <li className="portfolio" data-web="menjadiperwira">
-              <h3>MENJADIPERWIRA</h3>
-              <p>Event web profile</p>
-            </li>
-            <li className="portfolio" data-web="straightaway">
-              <h3>STRAIGHTAWAY</h3>
-              <p>Small Business Company Profile</p>
-            </li>
-            <li className="portfolio" data-web="tirtoproyektor">
-              <h3>TIRTOPROYEKTOR</h3>
-              <p>Rental Proyektor & Ecommerce</p>
-            </li>
-            <li className="portfolio" data-web="bumigriyamadani">
-              <h3>BUMIGRIYAMADANI</h3>
-              <p>Property Listing</p>
-            </li>
-          </ul>
-        </div>
-        <div className="web-showcase">
-          <div className="showcase active">
-            <Image
-              src="/images/idio.png"
-              layout="fill"
-              objectFit="contain"
-              placeholder="empty"
-            ></Image>
-            <a
-              href="https://idio.app"
-              target="_blank"
-              className="outbound-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
-              >
-                <title>Arrow Redo</title>
-                <path
-                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div className="showcase">
-            <Image
-              src="/images/menjadiperwira.png"
-              layout="fill"
-              objectFit="contain"
-              placeholder="empty"
-            ></Image>
-            <a
-              href="https://menjadiperwira.com"
-              target="_blank"
-              className="outbound-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
-              >
-                <title>Arrow Redo</title>
-                <path
-                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div className="showcase">
-            <Image
-              src="/images/straightaway.png"
-              layout="fill"
-              objectFit="contain"
-              placeholder="empty"
-            ></Image>
-            <a
-              href="https://straightaway.id"
-              target="_blank"
-              className="outbound-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
-              >
-                <title>Arrow Redo</title>
-                <path
-                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div className="showcase">
-            <Image
-              src="/images/tirtoproyektor.png"
-              layout="fill"
-              objectFit="contain"
-              placeholder="empty"
-            ></Image>
-            <a
-              href="https://tirtoproyektor.com"
-              target="_blank"
-              className="outbound-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
-              >
-                <title>Arrow Redo</title>
-                <path
-                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div className="showcase">
-            <Image
-              src="/images/bumigriyamadani.png"
-              layout="fill"
-              objectFit="contain"
-              placeholder="empty"
-            ></Image>
-            <a
-              href="https://bumigriyamadani.com"
-              target="_blank"
-              className="outbound-link"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="ionicon"
-                viewBox="0 0 512 512"
-              >
-                <title>Arrow Redo</title>
-                <path
-                  d="M448 256L272 88v96C103.57 184 64 304.77 64 424c48.61-62.24 91.6-96 208-96v96z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinejoin="round"
-                  strokeWidth="32"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <ul>
-            <div className="bullet active"></div>
-            <div className="bullet"></div>
-            <div className="bullet"></div>
-            <div className="bullet"></div>
-            <div className="bullet"></div>
-          </ul>
-        </div>
-      </section>
-
-      <section id="hire" className={`form-wrapper ${utilStyles.desktopSize}`}>
-        <h2>Mulai Kerjasama</h2>
-        <div className={utilStyles.sectionDivider}></div>
-        <p>
-          Entah Anda perlu seorang freelance web developer untuk projek website
-          atau tidak. Bincang dahulu jangan langsung bayar. Ceritakan saja
-          permasalahan yang sedang dihadapi
-        </p>
-        <Form />
-      </section>
-
-      <section className={`artikel-home ${utilStyles.desktopSize}`}>
-        <h2>Artikel Publikasi</h2>
-        <ul className={utilStyles.list}>
-          {allArtikelData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <ArticleList
-                id={id}
-                date={date}
-                title={title}
-                excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-            purus sit amet luctus venenatis, lectus magna fringilla urna,"
-              />
-            </li>
-          ))}
-        </ul>
-
-        <Link href="/artikel">
-          <a>
-            <Button
-              bgColor="var(--primary-color)"
-              textColor="var(--secondary-color)"
-            >
-              Semua Artikel
-            </Button>
-          </a>
-        </Link>
-      </section>
-      <Script>
-        {`
-          websitePortfolio=document.querySelectorAll('.portfolio');
-          showCase=document.querySelectorAll('.showcase');
-          bullets=document.querySelectorAll('.bullet');
-
-          websitePortfolio.forEach((website,index)=>{
-            website.addEventListener('click',()=>{
-              selectHighlight(index);
-            })
-          })
-
-          bullets.forEach((bullet,index)=>{
-            bullet.addEventListener('click',()=>{
-              selectHighlight(index);
-            })
-          })
-
-          function selectHighlight(i){
-            websitePortfolio.forEach((website,index)=>{
-              if(i===index){
-                website.classList.add('active');
-                showCase[index].classList.add('active');
-                bullets[index].classList.add('active');
-              }if(i!==index){
-                website.classList.remove('active');
-                showCase[index].classList.remove('active');
-                bullets[index].classList.remove('active');
-              }
-            })
-          }
-        `}
-      </Script>
     </Layout>
   );
-}
+};
+
+export default Home;
