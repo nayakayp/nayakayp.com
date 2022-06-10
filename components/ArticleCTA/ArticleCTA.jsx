@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ComponentCTAArtikel() {
+const ArticleCTA = () => {
   return (
     <div className="root">
       <style jsx>{`
@@ -93,4 +93,6 @@ export default function ComponentCTAArtikel() {
       </div>
     </div>
   );
-}
+};
+
+export default ArticleCTA;

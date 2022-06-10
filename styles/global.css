@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --light-background: #ffffff;
   --primary-color: #0c2c38;
   --accent-color: #4bd2ff;
@@ -75,4 +75,8 @@ li {
   h2 {
     font-size: 2.6rem;
   }
-}
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

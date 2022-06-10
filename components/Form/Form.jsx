@@ -1,8 +1,8 @@
-import Button from "./component-button";
+import { Button } from "../../components";
 import Script from "next/script";
 import * as gtag from "../../lib/gtag";
 
-export default function ComponentForm() {
+const Form = () => {
   const submitForm = () => {
     gtag.event({
       action: "submit_form",
@@ -103,7 +103,6 @@ export default function ComponentForm() {
           <label htmlFor="deskripsi">Deskripsi Proyek</label>
           <textarea
             name="deskripsi"
-            id=""
             cols="30"
             rows="10"
             id="deskripsi"
@@ -158,4 +157,6 @@ export default function ComponentForm() {
       `}</Script>
     </div>
   );
-}
+};
+
+export default Form;

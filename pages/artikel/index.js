@@ -1,7 +1,7 @@
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
-import Layout, { siteTitle } from "../../components/layout";
-import ListArtikel from "../../components/ui/component-list-artikel";
+import { Layout, ArticleList } from "../../components";
+import { siteTitle } from "../../components/Layout/Layout";
 import { getSortedArtikelData } from "../../lib/artikel";
 
 export async function getStaticProps() {
@@ -34,14 +34,14 @@ export default function Artikel({ allArtikelData }) {
         }
       `}</style>
       <section className={`root ${utilStyles.desktopSize}`}>
-        <div className="header">
+        <div className="header ">
           <h1>Semua Artikel</h1>
           <div className={utilStyles.sectionDivider}></div>
         </div>
         <ul className={utilStyles.list}>
           {allArtikelData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <ListArtikel
+              <ArticleList
                 id={id}
                 date={date}
                 title={title}

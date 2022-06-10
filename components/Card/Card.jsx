@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function ComponentCard({ children, imgHead, title }) {
+const Card = ({ children, imgHead, title }) => {
   return (
     <div className="root">
       <style jsx>{`
@@ -53,4 +53,6 @@ export default function ComponentCard({ children, imgHead, title }) {
       <p>{children}</p>
     </div>
   );
-}
+};
+
+export default Card;
