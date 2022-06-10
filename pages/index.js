@@ -41,8 +41,8 @@ const Home = () => {
 							saya pelajari.
 						</p>
 						<p className="mt-2 max-w-lg text-lg font-medium text-dark-400">
-							Saya sedang mendalami topik web programming <u>ReactJS</u>,{" "}
-							<u>NextJS</u> & <u>GSAP</u>
+							Saya sedang mendalami topik web programming seputar <u>ReactJS</u>
+							, <u>NextJS</u> & <u>GSAP</u>
 						</p>
 					</div>
 					<div className="">

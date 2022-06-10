@@ -28,6 +28,14 @@ const Layout = ({ children }) => {
 				/>
 				<meta name="og:title" content={siteTitle} />
 				<meta name="twitter:card" content="summary_large_image" />
+				<script
+					data-host="https://microanalytics.io"
+					data-dnt="false"
+					src="https://microanalytics.io/js/script.js"
+					id="ZwSg9rf6GA"
+					async
+					defer
+				></script>
 			</Head>
 			<header>
 				<Navbar />
