@@ -1,30 +1,14 @@
 const Button = ({ children, textColor, bgColor, border, submit }) => {
-  return (
-    <>
-      <style jsx>
-        {`
-          button {
-            color: ${textColor};
-            background-color: ${bgColor};
-            font-size: 1.8rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            min-width: 20rem;
-            border-radius: 0.5rem;
-            padding: 1.2rem 0;
-            border: ${border ? `1px solid ${textColor}` : "none"};
-            cursor: pointer;
-          }
-          @media screen and (max-width: 414px) {
-            button {
-              width: 100%;
-            }
-          }
-        `}
-      </style>
-      <button type={submit ? "submit" : "button"}>{children}</button>
-    </>
-  );
+	return (
+		<>
+			<button
+				className="rounded-md bg-dark-400 py-2 px-8 text-[18px] uppercase text-light-100"
+				type={submit ? "submit" : "button"}
+			>
+				{children}
+			</button>
+		</>
+	);
 };
 
 export default Button;
