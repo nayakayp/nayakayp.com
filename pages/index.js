@@ -1,24 +1,15 @@
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 
-import { Divider, ArticleList } from "../components";
+import { Divider, ArticleList, ArticleHeading } from "../components";
 import { siteTitle } from "../components/Layout/Layout";
+import { client } from "../lib/client";
 
-import { getSortedArtikelData } from "../lib/artikel";
 import utilStyles from "../styles/utils.module.css";
 import photoProfile from "../public/images/nayaka-photo.png";
 
-export async function getStaticProps() {
-	const allArtikelData = getSortedArtikelData();
-	return {
-		props: {
-			allArtikelData,
-		},
-	};
-}
-
-const Home = () => {
+const Home = ({ posts }) => {
+	console.log(posts);
 	return (
 		<>
 			<Head>
@@ -26,9 +17,9 @@ const Home = () => {
 			</Head>
 
 			<section className="">
-				<div className="flex justify-between">
+				<div className="flex flex-col-reverse md:flex-row md:justify-between">
 					<div className="">
-						<h1 className="mb-7 text-5xl font-semibold text-dark-400">
+						<h1 className="mb-4 mt-4 text-3xl font-semibold text-dark-400 md:mt-0 md:mb-7 md:text-5xl">
 							Hi,{" "}
 							<strong>
 								<u>Nayaka</u>
@@ -41,11 +32,21 @@ const Home = () => {
 							saya pelajari.
 						</p>
 						<p className="mt-2 max-w-lg text-lg font-medium text-dark-400">
-							Saya sedang mendalami topik web programming seputar <u>ReactJS</u>
-							, <u>NextJS</u> & <u>GSAP</u>
+							Saya sedang mendalami topik web programming seputar{" "}
+							<u className="text-turq-400">
+								<strong>ReactJS</strong>
+							</u>
+							,{" "}
+							<u className="text-turq-400">
+								<strong>NextJS</strong>
+							</u>{" "}
+							&{" "}
+							<u className="text-turq-400">
+								<strong>GSAP</strong>
+							</u>
 						</p>
 					</div>
-					<div className="">
+					<div className="h-32 w-32 md:h-56 md:w-56">
 						<Image
 							priority
 							src={photoProfile}
@@ -59,38 +60,33 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className="mt-16">
-				<div className="flex items-center justify-between">
-					<h2 className="text-4xl font-bold text-turq-400">Artikel Terbaru</h2>
-					<Link href="/artikel">
-						<a className="text-base font-semibold text-dark-300">
-							Lihat semua (20)
-							<Divider className="mt-2 h-[3px] bg-turq-400" />
-						</a>
-					</Link>
-				</div>
+			<section className="mt-10 md:mt-16">
+				<ArticleHeading
+					titleLeft="Artikel Terbaru"
+					titleRight={`Semua Artikel (${posts.length})`}
+					isLink={true}
+				/>
 				<Divider className="mt-4 mb-6 h-[1px] bg-dark-100" />
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
+				{posts?.map(({ post: _id, date, slug, title }) => (
+					<ArticleList
+						key={_id}
+						slug={slug.current}
+						date={date}
+						title={title}
+					/>
+				))}
 			</section>
 		</>
 	);
+};
+
+export const getServerSideProps = async () => {
+	const query = '*[_type == "post"]';
+	const posts = await client.fetch(query);
+
+	return {
+		props: { posts },
+	};
 };
 
 export default Home;
