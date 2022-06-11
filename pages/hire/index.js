@@ -2,10 +2,9 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Button, Card, Layout, Form, ArticleList } from "../../components";
+import { Button, Card, Form, ArticleList } from "../../components";
 import { siteTitle } from "../../components/Layout/Layout";
 
-import { getSortedArtikelData } from "../../lib/artikel";
 import utilStyles from "../../styles/utils.module.css";
 import Script from "next/script";
 import photoProfile from "../../public/images/nayaka-photo.png";
@@ -13,7 +12,7 @@ import photoProfile from "../../public/images/nayaka-photo.png";
 const Hire = ({ allArtikelData }) => {
 	return (
 		<>
-			<style jsx>{`
+			{/* <style jsx>{`
 				.hero {
 					background: var(--secondary-color);
 					background-image: url("/images/hero-background.png");
@@ -630,18 +629,18 @@ const Hire = ({ allArtikelData }) => {
             })
           }
         `}
-			</Script>
+			</Script> */}
 		</>
 	);
 };
 
-export async function getStaticProps() {
-	const allArtikelData = getSortedArtikelData();
-	return {
-		props: {
-			allArtikelData,
-		},
-	};
-}
+// export async function getStaticProps() {
+// 	const allArtikelData = getSortedArtikelData();
+// 	return {
+// 		props: {
+// 			allArtikelData,
+// 		},
+// 	};
+// }
 
 export default Hire;
