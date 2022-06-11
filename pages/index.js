@@ -26,9 +26,9 @@ const Home = () => {
 			</Head>
 
 			<section className="">
-				<div className="flex justify-between">
+				<div className="flex flex-col-reverse md:flex-row md:justify-between">
 					<div className="">
-						<h1 className="mb-7 text-5xl font-semibold text-dark-400">
+						<h1 className="mb-4 mt-4 text-3xl font-semibold text-dark-400 md:mt-0 md:mb-7 md:text-5xl">
 							Hi,{" "}
 							<strong>
 								<u>Nayaka</u>
@@ -55,7 +55,7 @@ const Home = () => {
 							</u>
 						</p>
 					</div>
-					<div className="">
+					<div className="h-32 w-32 md:h-56 md:w-56">
 						<Image
 							priority
 							src={photoProfile}
@@ -69,13 +69,15 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className="mt-16">
+			<section className="mt-10 md:mt-16">
 				<div className="flex items-center justify-between">
-					<h2 className="text-4xl font-bold text-turq-400">Artikel Terbaru</h2>
+					<h2 className="text-xl font-bold text-turq-400 md:text-4xl">
+						Artikel Terbaru
+					</h2>
 					<Link href="/artikel">
-						<a className="text-base font-semibold text-dark-300">
+						<a className="text-sm font-semibold text-dark-300 md:text-base">
 							Lihat semua (20)
-							<Divider className="mt-2 h-[3px] bg-turq-400" />
+							<Divider className="mt-1 h-[2px] bg-turq-400 md:mt-2 md:h-[3px]" />
 						</a>
 					</Link>
 				</div>

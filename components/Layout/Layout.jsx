@@ -41,13 +41,13 @@ const Layout = ({ children }) => {
 					defer
 				></script>
 			</Head>
-			<header>
+			<header className="-mx-4">
 				<Navbar />
 			</header>
 			<main className="mx-auto min-h-[80vh] max-w-4xl pt-16 pb-24">
 				{children}
 			</main>
-			<footer className="min-h-[10vh] bg-white  shadow-2xl">
+			<footer className="-mx-4 min-h-[10vh] bg-white shadow-2xl">
 				<Footer />
 			</footer>
 		</div>

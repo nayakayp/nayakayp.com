@@ -9,7 +9,7 @@ const Navbar = () => {
 		{ name: "Artikel", link: "/artikel" },
 	];
 	return (
-		<nav className="w-full bg-white py-2 shadow-sm">
+		<nav className="w-full bg-white px-4 py-2 shadow-sm md:px-0">
 			<div className="mx-auto flex max-w-4xl items-center justify-between text-3xl text-dark-400 ">
 				<Link href="/">
 					<a id="logo" className="w-[128px]">

@@ -4,7 +4,7 @@ const Footer = () => {
 	const footerYear = new Date().getFullYear();
 
 	return (
-		<div className="mx-auto max-w-4xl py-14">
+		<div className="mx-auto max-w-4xl py-8 md:py-14">
 			<div className="social mb-4 flex items-center justify-center space-x-6">
 				<a href="https://instagram.com/nayakayp" target="_blank">
 					<svg
@@ -41,7 +41,7 @@ const Footer = () => {
 					</svg>
 				</a>
 			</div>
-			<p className="text-center">
+			<p className="text-center text-sm md:text-base">
 				Copyright © {footerYear} <strong>Nayaka Yoga Pradipta.</strong>
 			</p>
 		</div>
