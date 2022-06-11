@@ -26,7 +26,7 @@ export default function Artikel({ allArtikelData }) {
 			</Head>
 			<PageHeading
 				title="Artikel"
-				subtitle="Tutorial seputar web developer. Semua yang saya tulis berupa tulisan teknis yang dibahas secara lengkap dan mendalam"
+				subtitle="Tutorial seputar web developer. Semua yang ditulis berupa tulisan teknis yang dibahas secara lengkap dan mendalam"
 			/>
 			<div className="flex flex-col space-y-10">
 				<section>
