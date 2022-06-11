@@ -6,12 +6,16 @@ export const siteTitle = "Nayaka Yoga Pradipta";
 
 const Layout = ({ children }) => {
 	return (
-		<div className="bg-[#FDFDFD]">
+		<div className="bg-[#FDFDFD] px-4 md:px-0">
 			<Head>
 				<title>{siteTitle}</title>
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+				<link
+					rel="preconnect"
+					href="https://fonts.gstatic.com"
+					crossOrigin="true"
+				/>
 				<link
 					href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
 					rel="stylesheet"
@@ -43,7 +47,7 @@ const Layout = ({ children }) => {
 			<main className="mx-auto min-h-[80vh] max-w-4xl pt-16 pb-24">
 				{children}
 			</main>
-			<footer className="min-h-[10vh] bg-white shadow-md">
+			<footer className="min-h-[10vh] bg-white  shadow-2xl">
 				<Footer />
 			</footer>
 		</div>

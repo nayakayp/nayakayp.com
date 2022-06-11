@@ -41,8 +41,18 @@ const Home = () => {
 							saya pelajari.
 						</p>
 						<p className="mt-2 max-w-lg text-lg font-medium text-dark-400">
-							Saya sedang mendalami topik web programming seputar <u>ReactJS</u>
-							, <u>NextJS</u> & <u>GSAP</u>
+							Saya sedang mendalami topik web programming seputar{" "}
+							<u className="text-turq-400">
+								<strong>ReactJS</strong>
+							</u>
+							,{" "}
+							<u className="text-turq-400">
+								<strong>NextJS</strong>
+							</u>{" "}
+							&{" "}
+							<u className="text-turq-400">
+								<strong>GSAP</strong>
+							</u>
 						</p>
 					</div>
 					<div className="">
