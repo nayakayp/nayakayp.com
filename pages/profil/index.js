@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { siteTitle } from "../../components/Layout/Layout";
 
-import { Divider } from "../../components";
+import { Divider, PageHeading } from "../../components";
 
 const profil = () => {
 	return (
@@ -10,13 +10,10 @@ const profil = () => {
 				<title>Artikel - {siteTitle}</title>
 			</Head>
 			<section className="">
-				<div className="mb-10 flex flex-col items-center">
-					<h1 className="mb-6 text-center text-2xl font-bold md:text-4xl">
-						Tentang <br />
-						Nayaka Yoga Pradipta
-					</h1>
-					<Divider className="h-1 max-w-[170px] bg-dark-400" />
-				</div>
+				<PageHeading
+					title="Tentang"
+					subtitle="Frontend Engineer, Technical Writer and Marathon Runner"
+				/>
 				<article className="flex flex-col space-y-4">
 					<p className="text-lg text-dark-400">
 						Lulus di akhir tahun 2019 sebagai sarjana Teknik Elektro, melihat

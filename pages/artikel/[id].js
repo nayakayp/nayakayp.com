@@ -1,67 +1,43 @@
 import Head from "next/head";
 import Date from "../../components/date";
-import { ArticleCTA, Layout } from "../../components";
-import utilStyles from "../../styles/utils.module.css";
 import { getAllArtikelIds, getArtikelData } from "../../lib/artikel";
 
 export async function getStaticProps({ params }) {
-  const artikelData = await getArtikelData(params.id);
+	const artikelData = await getArtikelData(params.id);
 
-  return {
-    props: {
-      artikelData,
-    },
-  };
+	return {
+		props: {
+			artikelData,
+		},
+	};
 }
 
 export async function getStaticPaths() {
-  const paths = getAllArtikelIds();
-  return {
-    paths,
-    fallback: false,
-  };
+	const paths = getAllArtikelIds();
+	return {
+		paths,
+		fallback: false,
+	};
 }
 
 export default function Artikel({ artikelData }) {
-  return (
-    <Layout>
-      <style jsx>{`
-        .root {
-        }
-        h3 {
-          font-size: 3.6rem;
-          font-weight: 600;
-        }
-        .content {
-          padding: 6rem 0;
-          max-width: 70rem;
-        }
-        .date {
-          margin: 1rem 0 4rem 0;
-          font-size: 1.6rem;
-        }
-        @media screen and (max-width: 414px) {
-          .content {
-            width: 100%;
-            padding: 6rem 2rem;
-          }
-          h3 {
-            font-size: 3rem;
-            line-height: 3rem;
-          }
-        }
-      `}</style>
-      <Head>
-        <title>{artikelData.title}</title>
-      </Head>
-      <article className={`content ${utilStyles.desktopSize}`}>
-        <h3>{artikelData.title}</h3>
-        <p className="date">
-          <Date dateString={artikelData.date} />
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: artikelData.contentHtml }} />
-      </article>
-      <ArticleCTA />
-    </Layout>
-  );
+	return (
+		<>
+			<Head>
+				<title>{artikelData.title}</title>
+			</Head>
+			<article className="">
+				<h1 className="mb-2 text-3xl font-bold text-dark-400 md:mb-4 md:text-4xl">
+					{artikelData.title}
+				</h1>
+				<p className="mb-4 text-base text-dark-100 md:mb-9">
+					<Date dateString={artikelData.date} />
+				</p>
+				<div
+					className="articleBody text-lg"
+					dangerouslySetInnerHTML={{ __html: artikelData.contentHtml }}
+				/>
+			</article>
+		</>
+	);
 }

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Divider, ArticleList } from "../components";
+import { Divider, ArticleList, ArticleHeading } from "../components";
 import { siteTitle } from "../components/Layout/Layout";
 
 import { getSortedArtikelData } from "../lib/artikel";
@@ -70,17 +70,10 @@ const Home = () => {
 			</section>
 
 			<section className="mt-10 md:mt-16">
-				<div className="flex items-center justify-between">
-					<h2 className="text-xl font-bold text-turq-400 md:text-4xl">
-						Artikel Terbaru
-					</h2>
-					<Link href="/artikel">
-						<a className="text-sm font-semibold text-dark-300 md:text-base">
-							Lihat semua (20)
-							<Divider className="mt-1 h-[2px] bg-turq-400 md:mt-2 md:h-[3px]" />
-						</a>
-					</Link>
-				</div>
+				<ArticleHeading
+					titleLeft="Artikel Terbaru"
+					titleRight="Lihat semua (20)"
+				/>
 				<Divider className="mt-4 mb-6 h-[1px] bg-dark-100" />
 				<ArticleList
 					id={2}
