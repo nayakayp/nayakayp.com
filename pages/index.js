@@ -1,24 +1,15 @@
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 
 import { Divider, ArticleList, ArticleHeading } from "../components";
 import { siteTitle } from "../components/Layout/Layout";
+import { client } from "../lib/client";
 
-import { getSortedArtikelData } from "../lib/artikel";
 import utilStyles from "../styles/utils.module.css";
 import photoProfile from "../public/images/nayaka-photo.png";
 
-export async function getStaticProps() {
-	const allArtikelData = getSortedArtikelData();
-	return {
-		props: {
-			allArtikelData,
-		},
-	};
-}
-
-const Home = () => {
+const Home = ({ posts }) => {
+	console.log(posts);
 	return (
 		<>
 			<Head>
@@ -72,30 +63,30 @@ const Home = () => {
 			<section className="mt-10 md:mt-16">
 				<ArticleHeading
 					titleLeft="Artikel Terbaru"
-					titleRight="Lihat semua (20)"
+					titleRight={`Semua Artikel (${posts.length})`}
+					isLink={true}
 				/>
 				<Divider className="mt-4 mb-6 h-[1px] bg-dark-100" />
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
-				<ArticleList
-					id={2}
-					date="2022-20-12"
-					title="Nayaka is great!"
-					excerpt="loremipsum test"
-				/>
+				{posts?.map(({ post: _id, date, slug, title }) => (
+					<ArticleList
+						key={_id}
+						slug={slug.current}
+						date={date}
+						title={title}
+					/>
+				))}
 			</section>
 		</>
 	);
+};
+
+export const getServerSideProps = async () => {
+	const query = '*[_type == "post"]';
+	const posts = await client.fetch(query);
+
+	return {
+		props: { posts },
+	};
 };
 
 export default Home;
