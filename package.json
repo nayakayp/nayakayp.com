@@ -9,6 +9,7 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
+    "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.2",
     "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",

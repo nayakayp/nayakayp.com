@@ -71,7 +71,7 @@ export default function Artikel({ posts }) {
 }
 
 export const getServerSideProps = async () => {
-	const query = '*[_type == "post"]';
+	const query = '*[ _type == "post" && !(_id in path("drafts.**"))]'; //Get only published article
 	const posts = await client.fetch(query);
 
 	return {
