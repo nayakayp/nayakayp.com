@@ -9,7 +9,6 @@ import utilStyles from "../styles/utils.module.css";
 import photoProfile from "../public/images/nayaka-photo.png";
 
 const Home = ({ posts }) => {
-	console.log(posts);
 	return (
 		<>
 			<Head>
@@ -81,7 +80,7 @@ const Home = ({ posts }) => {
 };
 
 export const getServerSideProps = async () => {
-	const query = '*[_type == "post"]';
+	const query = '*[ _type == "post" && !(_id in path("drafts.**"))]';
 	const posts = await client.fetch(query);
 
 	return {

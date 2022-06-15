@@ -47,7 +47,6 @@ const components = {
 
 export default function Artikel({ postDetail }) {
 	const { title, date, content } = postDetail;
-	console.log(content);
 	return (
 		<div className={styles.root}>
 			<Head>

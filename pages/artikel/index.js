@@ -11,7 +11,6 @@ import { siteTitle } from "../../components/Layout/Layout";
 import { client } from "../../lib/client";
 
 export default function Artikel({ posts }) {
-	console.log(posts);
 	return (
 		<>
 			<Head>
@@ -73,7 +72,6 @@ export default function Artikel({ posts }) {
 export const getServerSideProps = async () => {
 	const query = '*[ _type == "post" && !(_id in path("drafts.**"))]'; //Get only published article
 	const posts = await client.fetch(query);
-
 	return {
 		props: { posts },
 	};
