@@ -66,6 +66,7 @@ const Home = ({ posts }) => {
 					isLink={true}
 				/>
 				<Divider className="mt-4 mb-6 h-[1px] bg-dark-100" />
+
 				{posts?.map(({ post: _id, date, slug, title }) => (
 					<ArticleList
 						key={_id}

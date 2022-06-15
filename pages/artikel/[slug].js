@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import Date from "../../components/date";
-// import { getAllArtikelIds, getArtikelData } from "../../lib/artikel";
 import { client } from "../../lib/client";
 import { PortableText } from "@portabletext/react";
 import styles from "./[Slug].module.css";
+import "prismjs/themes/prism-tomorrow.css";
+
+const prism = require("prismjs");
+require("prismjs/components/prism-python");
 
 export async function getStaticProps({ params: { slug } }) {
 	const postDetailQuery = `*[_type == "post" && slug.current == "${slug}"][0]`;
@@ -47,6 +51,9 @@ const components = {
 
 export default function Artikel({ postDetail }) {
 	const { title, date, content } = postDetail;
+	useEffect(() => {
+		prism.highlightAll();
+	}, []);
 	return (
 		<div className={styles.root}>
 			<Head>
@@ -59,6 +66,22 @@ export default function Artikel({ postDetail }) {
 				<p className="mb-4 text-base text-dark-100 md:mb-9">
 					<Date dateString={date} />
 				</p>
+				<pre>
+					<code className="language-javascript">
+						{`import "prismjs/themes/prism-tomorrow.css";
+
+export default function App({ Component, pageProps }) {
+	return <Component {...pageProps} />;
+
+	const nayaka= 23;
+	const nayaka= '23'
+	const nayaka= {
+		name:nayaka,
+		age:23
+	}
+}`}
+					</code>
+				</pre>
 				<div className="articleBody text-lg">
 					<PortableText value={content} components={components} />
 				</div>
