@@ -42,7 +42,6 @@ export async function getStaticPaths() {
 const components = {
     types: {
         code: (props) => {
-            console.log(props);
             return (
                 <pre className="relative rounded-lg">
                     <code className="language-javascript">
@@ -56,7 +55,6 @@ const components = {
 
 export default function Artikel({ postDetail }) {
     const { title, date, content } = postDetail;
-    console.log(content);
     useEffect(() => {
         prism.highlightAll();
     }, []);
