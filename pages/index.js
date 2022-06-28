@@ -9,7 +9,6 @@ import utilStyles from "../styles/utils.module.css";
 import photoProfile from "../public/images/nayaka-photo.png";
 
 const Home = ({ posts }) => {
-	console.log(posts);
 	return (
 		<>
 			<Head>
@@ -67,6 +66,7 @@ const Home = ({ posts }) => {
 					isLink={true}
 				/>
 				<Divider className="mt-4 mb-6 h-[1px] bg-dark-100" />
+
 				{posts?.map(({ post: _id, date, slug, title }) => (
 					<ArticleList
 						key={_id}
@@ -81,7 +81,7 @@ const Home = ({ posts }) => {
 };
 
 export const getServerSideProps = async () => {
-	const query = '*[_type == "post"]';
+	const query = '*[ _type == "post" && !(_id in path("drafts.**"))]';
 	const posts = await client.fetch(query);
 
 	return {

@@ -9,12 +9,14 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
+    "@portabletext/react": "^1.0.6",
     "@sanity/client": "^3.3.2",
     "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
     "gray-matter": "^4.0.3",
     "moment": "^2.29.3",
     "next": "latest",
+    "prismjs": "^1.28.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.4.0",
