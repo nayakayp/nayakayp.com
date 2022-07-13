@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import Date from "../../components/date";
 import { client } from "../../lib/client";
 import { PortableText } from "@portabletext/react";
-import styles from "./[Slug].module.css";
+import { urlFor } from "../../lib/client";
+import { getImageDimensions } from "@sanity/asset-utils";
 import "prismjs/themes/prism-tomorrow.css";
 
 const prism = require("prismjs");
@@ -44,22 +46,63 @@ const components = {
         code: (props) => {
             return (
                 <pre className="relative rounded-lg">
-                    <code className="language-javascript">
+                    <code className="language-javascript text-xs">
                         {props.value.code}
                     </code>
                 </pre>
             );
         },
+        image: (props) => {
+            const { width, height } = getImageDimensions(props.value);
+            console.log(width, height);
+            return (
+                <div className="my-4 rounded shadow-xl">
+                    <Image
+                        src={urlFor(props.value).url()}
+                        width={width}
+                        height={height}
+                    />
+                </div>
+            );
+        },
+    },
+    block: {
+        h2: ({ children }) => (
+            <h2 className="my-2 text-3xl font-bold text-dark-400">
+                {children}
+            </h2>
+        ),
+        h3: ({ children }) => (
+            <h3 className="my-2 text-2xl font-bold text-dark-400">
+                {children}
+            </h3>
+        ),
+    },
+    marks: {
+        code: ({ children }) => (
+            <code className="rounded bg-stone-200 py-[2px] px-2 text-base">
+                {children}
+            </code>
+        ),
+    },
+    list: {
+        bullet: ({ children }) => (
+            <ul className="list-disc pl-8">{children}</ul>
+        ),
+        number: ({ children }) => (
+            <ol className="list-decimal pl-8">{children}</ol>
+        ),
     },
 };
 
 export default function Artikel({ postDetail }) {
     const { title, date, content } = postDetail;
+    console.log(content);
     useEffect(() => {
         prism.highlightAll();
     }, []);
     return (
-        <div className={styles.root}>
+        <div className="">
             <Head>
                 <title>{title}</title>
             </Head>
