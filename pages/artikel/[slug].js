@@ -54,7 +54,6 @@ const components = {
         },
         image: (props) => {
             const { width, height } = getImageDimensions(props.value);
-            console.log(width, height);
             return (
                 <div className="my-4 rounded shadow-xl">
                     <Image
@@ -97,7 +96,6 @@ const components = {
 
 export default function Artikel({ postDetail }) {
     const { title, date, content } = postDetail;
-    console.log(content);
     useEffect(() => {
         prism.highlightAll();
     }, []);
